@@ -74,6 +74,16 @@ build-windows-arm: ## Build for Windows (arm)
 build-windows-arm64: ## Build for Windows (arm64)
 	@$(MAKE) build GOOS=windows GOARCH=arm64 BINARY_NAME=$(BINARY_NAME).exe
 
+build-all: ## Build for all platforms
+	@$(MAKE) build-linux
+	@$(MAKE) build-linux-arm
+	@$(MAKE) build-linux-arm64
+	@$(MAKE) build-macos
+	@$(MAKE) build-macos-arm64
+	@$(MAKE) build-windows
+	@$(MAKE) build-windows-arm
+	@$(MAKE) build-windows-arm64
+
 .PHONY: clean
 clean: ## Clean bin and coverage files
 	@echo "--->  Cleaning bin and coverage files"
